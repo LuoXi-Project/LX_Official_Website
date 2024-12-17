@@ -6,7 +6,7 @@
 
 <div align="center">
 
-# ✨ 洛曦 项目模板  ✨
+# ✨ 洛曦 官方网站  ✨
 
 [![][python]][python]
 [![][github-release-shield]][github-release-link]
@@ -17,19 +17,6 @@
 [![][github-license-shield]][github-license-link]
 
 </div>
-
-## 前言
-
-
-## 环境
-
-python: 3.10  
-
-## 安装
-
-安装依赖：`pip install -r requirements.txt`  
-
-## 运行
 
 
 ## 💡 提问的智慧

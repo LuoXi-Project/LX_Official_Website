@@ -5,9 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/910ce80589.js" crossorigin="anonymous"></script>
+    <!-- <script src="https://kit.fontawesome.com/910ce80589.js" crossorigin="anonymous"></script> -->
+    <link href="fontawesome-5.15.4/css/fontawesome.css" rel="stylesheet">
+    <link href="fontawesome-5.15.4/css/brands.css" rel="stylesheet">
+    <link href="fontawesome-5.15.4/css/solid.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mobile.css">
     <title>洛曦</title>
 </head>
 
@@ -25,48 +29,25 @@
                 </ul>
             </div>
             <div class="socialIcon">
-                <i class="fa-brands fa-qq"></i>
-                <i class="fa-brands fa-wechat"></i>
-                <i class="fa-brands fa-github"></i>
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=327209194&site=qq&menu=yes" target="_blank">
+                    <i class="fab fa-qq"></i>
+                </a>
+                <a href="https://pd.qq.com/s/hff4u66vd" target="_blank">
+                    <i class="fa fa-comment"></i>
+                </a>
+                
+                <a href="https://github.com/Ikaros-521" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
             </div>
-            <div class="cart">
+            
+            <!-- <div class="cart">
                 <p>cart <span>(0)</span></p>
-            </div>
+            </div> -->
         </header>
         <div class="swiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide slide01">
-                    <div class="slideContent">
-                        <div class="imgCon">
-                            <img src="img/直播弹幕助手.png">
-                        </div>
-                        <div class="shadow">
-                            <img src="img/shadow.webp">
-                        </div>
-                        <h1 class="titleName">直播<span>弹幕</span>助手</h1>
-                        <div class="productInfo">
-                            <div class="productDetils">
-                                <div class="info">
-                                    <h2>￥5</h2>
-                                    <div class="rating">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                    <p>自动化弹幕发送：通过API控制，自动在指定窗口输入并发送弹幕。</p>
-                                    <p>定时任务支持：可设置定时任务，在指定时间段内随机或按顺序读取本地文件内容，自动发送弹幕。</p>
-                                    <p>广泛适用性：不仅限于直播平台，任何具有输入框、支持复制粘贴和鼠标点击发送的窗口（如QQ、微信等）均可使用。</p>
-                                </div>
-                            </div>
-                            <div class="buybox">
-                                <a href="https://gf.bilibili.com/item/detail/1107659009">立刻购买</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="swiper-slide slide02">
                     <div class="slideContent">
                         <div class="imgCon">
                             <img src="img/AI-Vtuber.png">
@@ -80,10 +61,10 @@
                                 <div class="info">
                                     <h2>￥0</h2>
                                     <div class="rating">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
                                     </div>
                                     <p>AI Vtuber是一款结合了最先进技术的虚拟AI主播。</p>
                                     <p>它的核心是一系列高效的人工智能模型和平台，包括 ChatGPT、Claude、chatglm、text-generation-webui、讯飞星火、智谱AI、谷歌Bard、通义星尘、阿里云百炼、千帆大模型、Gemini、Kimi Chat、QAnything、koboldcpp、FastGPT、Ollama、One-API、AnythingLLM、LLM_TPU、Dify、火山引擎（豆包）。</p>
@@ -92,7 +73,71 @@
                                 </div>
                             </div>
                             <div class="buybox">
-                                <a href="https://github.com/Ikaros-521/AI-Vtuber">立刻尝试</a>
+                                <a href="https://github.com/Ikaros-521/AI-Vtuber" target="_blank">立刻尝试</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide02">
+                    <div class="slideContent">
+                        <div class="imgCon">
+                            <img src="img/直播弹幕助手.png">
+                        </div>
+                        <div class="shadow">
+                            <img src="img/shadow.webp">
+                        </div>
+                        <h1 class="titleName">直播<span>弹幕</span>助手</h1>
+                        <div class="productInfo">
+                            <div class="productDetils">
+                                <div class="info">
+                                    <h2>￥5</h2>
+                                    <div class="rating">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <p>自动化弹幕发送：通过API控制，自动在指定窗口输入并发送弹幕。</p>
+                                    <p>定时任务支持：可设置定时任务，在指定时间段内随机或按顺序读取本地文件内容，自动发送弹幕。</p>
+                                    <p>广泛适用性：不仅限于直播平台，任何具有输入框、支持复制粘贴和鼠标点击发送的窗口（如QQ、微信等）均可使用。</p>
+                                </div>
+                            </div>
+                            <div class="buybox">
+                                <a href="https://gf.bilibili.com/item/detail/1107659009" target="_blank">立刻购买</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide03">
+                    <div class="slideContent">
+                        <div class="imgCon">
+                            <img src="img/洛曦AI.png">
+                        </div>
+                        <div class="shadow">
+                            <img src="img/shadow.webp">
+                        </div>
+                        <h1 class="titleName">洛曦<span>AI</span></h1>
+                        <div class="productInfo">
+                            <div class="productDetils">
+                                <div class="info">
+                                    <h2>￥？</h2>
+                                    <div class="rating">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <p>AI 无人直播系统</p>
+                                    <p>用户管理：同时多用户登录使用</p>
+                                    <p>配置管理：支持同时运行多个配置，一台电脑多平台直播</p>
+                                    <p>AI集成：对接主流LLM、TTS</p>
+                                    <p>多平台支持：Windows/Linux/Mac OS</p>
+                                </div>
+                            </div>
+                            <div class="buybox">
+                                <a href="https://space.bilibili.com/3709626" target="_blank">咨询</a>
                             </div>
                         </div>
                     </div>
@@ -112,3 +157,4 @@
 </body>
 
 </html>
+
