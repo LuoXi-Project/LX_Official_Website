@@ -1,13 +1,19 @@
 var swiper = new Swiper(".swiper", {
-    loop: true,
-    speed: 1200,
-    effect: "fade",
+    loop: true,  // 循环模式
+    speed: 1200,  // 动画速度
+    effect: "fade",  // 切换效果为淡入淡出
 
     navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
+        nextEl: ".swiper-button-next",  // 下一页按钮
+        prevEl: ".swiper-button-prev",  // 上一页按钮
+    },
+
+    autoplay: {
+        delay: 5000,  // 每隔5秒自动切换
+        disableOnInteraction: false,  // 允许用户互动后依然保持自动播放
     },
 });
+
 
 let animation = anime({
     targets: "header",
