@@ -9,7 +9,7 @@ var swiper = new Swiper(".swiper", {
     },
 
     autoplay: {
-        delay: 5000,  // 每隔5秒自动切换
+        delay: 10000,  // 每隔5秒自动切换
         disableOnInteraction: false,  // 允许用户互动后依然保持自动播放
     },
 });
