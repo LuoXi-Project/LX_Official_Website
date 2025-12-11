@@ -125,7 +125,7 @@ export default function ProductsPage() {
         <div className="px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-8">
             <Badge className="bg-primary/20 text-primary mb-4">产品矩阵</Badge>
-            <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">全面、炫酷的产品展示</h1>
+            <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">全面产品展示</h1>
             <p className="text-lg text-muted-foreground">
               纵向滚动切换，每屏聚焦一个产品，支持链接与视频教程，便于快速了解与决策。
             </p>
@@ -155,9 +155,9 @@ export default function ProductsPage() {
                         product.badge === "热门"
                           ? "bg-primary/20 text-primary"
                           : product.badge === "企业版"
-                            ? "bg-amber-200/40 text-amber-700"
+                            ? "bg-amber-200/40 text-amber-500"
                             : product.badge === "新品"
-                              ? "bg-emerald-200/40 text-emerald-700"
+                              ? "bg-emerald-200/40 text-emerald-500"
                               : "bg-secondary text-muted-foreground"
                       }
                     >
