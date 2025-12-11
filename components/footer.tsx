@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import { Github, MessageCircle, Video } from "lucide-react"
 
@@ -9,10 +10,15 @@ export function Footer() {
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-lg">洛</span>
-              </div>
-              <span className="text-xl font-bold text-foreground">洛曦AI</span>
+              <Image
+                src="/logo.png"
+                alt="洛曦 logo"
+                width={32}
+                height={32}
+                className="rounded-lg"
+                priority
+              />
+              <span className="text-xl font-bold text-foreground">洛曦</span>
             </Link>
             <p className="text-muted-foreground text-sm">AI驱动的下一代直播解决方案</p>
           </div>
@@ -104,7 +110,7 @@ export function Footer() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted-foreground">© 2025 洛曦AI. All rights reserved.</p>
+          <p className="text-sm text-muted-foreground">© 2025 洛曦. All rights reserved.</p>
           <p className="text-sm text-muted-foreground">QQ: 327209194</p>
         </div>
       </div>

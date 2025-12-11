@@ -41,12 +41,12 @@ export function HeroSection() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="https://github.com/Ikaros-521/AI-Vtuber" target="_blank">
+            <Link href="https://github.com/Ikaros-521/LX_AI" target="_blank">
               <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 gap-2">
                 立即开始 <ArrowRight className="w-4 h-4" />
               </Button>
             </Link>
-            <Link href="https://space.bilibili.com/3709626/lists/1422512" target="_blank">
+            <Link href="https://space.bilibili.com/3709626/lists/4391504" target="_blank">
               <Button size="lg" variant="outline" className="gap-2 border-border hover:bg-secondary bg-transparent">
                 <Play className="w-4 h-4" /> 观看教程
               </Button>

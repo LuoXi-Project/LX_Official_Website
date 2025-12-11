@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import Link from "next/link"
 import { Menu, X, Github, MessageCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -14,10 +15,15 @@ export function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">洛</span>
-            </div>
-            <span className="text-xl font-bold text-foreground">洛曦AI</span>
+            <Image
+              src="/logo.png"
+              alt="洛曦 logo"
+              width={32}
+              height={32}
+              className="rounded-lg"
+              priority
+            />
+            <span className="text-xl font-bold text-foreground">洛曦</span>
           </Link>
 
           {/* Desktop Nav */}
