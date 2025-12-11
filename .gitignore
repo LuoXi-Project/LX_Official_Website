@@ -10,3 +10,5 @@ tests/
 output/
 
 .history
+node_modules
+.next
