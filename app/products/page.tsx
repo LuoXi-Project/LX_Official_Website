@@ -3,6 +3,7 @@ import { Footer } from "@/components/footer"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ArrowUpRight, PlayCircle } from "lucide-react"
+import Image from "next/image"
 import Link from "next/link"
 
 const products = [
@@ -16,6 +17,7 @@ const products = [
     link: "https://github.com/Ikaros-521/AI-Vtuber",
     video: "https://space.bilibili.com/3709626/lists/1422512",
     gradient: "from-purple-600/60 via-indigo-600/60 to-blue-600/60",
+    image: "/img/AI-Vtuber.png",
   },
   {
     id: "luoxi-ai",
@@ -27,6 +29,7 @@ const products = [
     link: "https://pd.qq.com/s/f247aeq3j",
     video: "https://space.bilibili.com/3709626/lists/4391504",
     gradient: "from-amber-500/60 via-orange-500/60 to-red-500/60",
+    image: "/img/洛曦AI.png",
   },
   {
     id: "digital-human",
@@ -38,6 +41,7 @@ const products = [
     link: "https://space.bilibili.com/3709626",
     video: "https://www.compshare.cn/images/Rihotreq9MRL?referral_code=CpxneZgXby6EOmUwLGr7hQ",
     gradient: "from-cyan-500/60 via-teal-500/60 to-emerald-500/60",
+    image: "/img/实时语音数字人.png",
   },
   {
     id: "live2d",
@@ -49,6 +53,7 @@ const products = [
     link: "https://space.bilibili.com/3709626",
     video: null,
     gradient: "from-pink-500/60 via-fuchsia-500/60 to-purple-500/60",
+    image: "/img/实时语音Live2D.png",
   },
   {
     id: "danmu-assistant",
@@ -60,6 +65,7 @@ const products = [
     link: "https://mall.bilibili.com/neul-next/detailuniversal/detail.html?isMerchant=1&page=detailuniversal_detail&saleType=10&itemsId=11995985&loadingShow=1&noTitleBar=1&msource=merchant_share",
     video: null,
     gradient: "from-sky-500/60 via-blue-500/60 to-indigo-500/60",
+    image: "/img/直播弹幕助手.png",
   },
   {
     id: "printer",
@@ -71,6 +77,7 @@ const products = [
     link: "https://space.bilibili.com/3709626",
     video: null,
     gradient: "from-lime-500/60 via-green-500/60 to-emerald-500/60",
+    image: "/img/直播辅助打印机.png",
   },
   {
     id: "bot",
@@ -82,6 +89,7 @@ const products = [
     link: "https://github.com/Ikaros-521/LX_Bot",
     video: "https://space.bilibili.com/3709626/channel/collectiondetail?sid=850321",
     gradient: "from-slate-500/60 via-gray-600/60 to-zinc-700/60",
+    image: "/img/洛曦Bot.png",
   },
   {
     id: "captions",
@@ -93,6 +101,7 @@ const products = [
     link: "https://github.com/Ikaros-521/captions_printer",
     video: "https://www.bilibili.com/video/BV13h4y1e7z8/",
     gradient: "from-orange-500/60 via-amber-500/60 to-yellow-400/60",
+    image: "/img/洛曦Web字幕打印机.png",
   },
   {
     id: "travel",
@@ -104,6 +113,7 @@ const products = [
     link: "https://github.com/Ikaros-521/LX_SkyRoam_Agent",
     video: "https://www.bilibili.com/video/BV1XtCdBXEbf",
     gradient: "from-indigo-500/60 via-cyan-500/60 to-teal-500/60",
+    image: "/img/洛曦云旅.png",
   },
 ]
 
@@ -187,19 +197,18 @@ export default function ProductsPage() {
                 </div>
 
                 <div className="hidden lg:flex items-center justify-center">
-                  <div className="relative w-full max-w-xl aspect-[4/3] rounded-3xl overflow-hidden border border-border bg-gradient-to-br from-background/60 to-background/20 shadow-2xl">
-                    <div className="absolute inset-0 bg-grid-white/5 [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]" />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="h-56 w-56 rounded-full bg-background/40 blur-3xl" aria-hidden />
-                    </div>
-                    <div className="relative h-full w-full flex items-center justify-center">
-                      <div className="p-6 text-center space-y-3">
-                        <p className="text-sm uppercase tracking-[0.25em] text-muted-foreground">LX</p>
-                        <h3 className="text-2xl font-semibold text-foreground">Product Spotlight</h3>
-                        <p className="text-muted-foreground">
-                          每屏聚焦一个产品，滚动以浏览下一款。颜色随产品变化，保持沉浸与炫酷动效。
-                        </p>
-                      </div>
+                  <div className="relative w-full max-w-2xl aspect-[16/10] rounded-[28px] overflow-hidden border border-border bg-background/70 shadow-2xl">
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-black/20 pointer-events-none" />
+                    <div className="absolute inset-0">
+                      <div className="absolute inset-0 bg-background/30 blur-3xl" aria-hidden />
+                      <Image
+                        src={product.image}
+                        alt={product.name}
+                        fill
+                        sizes="(min-width: 1024px) 640px, 100vw"
+                        className="object-contain"
+                        priority
+                      />
                     </div>
                   </div>
                 </div>
