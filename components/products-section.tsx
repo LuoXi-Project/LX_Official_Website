@@ -5,6 +5,7 @@ import { ArrowUpRight, Star } from "lucide-react"
 
 const products = [
   {
+    slug: "ai-vtuber",
     name: "AI Vtuber",
     description: "结合最先进技术的虚拟AI主播，支持ChatGPT、Claude等20+大语言模型，本地云端双部署",
     price: "开源免费",
@@ -15,6 +16,7 @@ const products = [
     videoLink: "https://space.bilibili.com/3709626/lists/1422512",
   },
   {
+    slug: "luoxi-ai",
     name: "洛曦AI",
     description: "AI无人直播系统，支持多用户登录、多配置运行、一台电脑多平台直播",
     price: "¥150/月起",
@@ -25,6 +27,7 @@ const products = [
     videoLink: "https://space.bilibili.com/3709626/lists/4391504",
   },
   {
+    slug: "digital-human",
     name: "实时语音数字人",
     description: "集成ASR语音识别、LLM大模型、TTS语音合成，Wav2Lip 256高清数字人实时生成",
     price: "¥1000/年",
@@ -35,6 +38,7 @@ const products = [
     videoLink: "https://www.compshare.cn/images/Rihotreq9MRL?referral_code=CpxneZgXby6EOmUwLGr7hQ",
   },
   {
+    slug: "live2d",
     name: "实时语音Live2D",
     description: "实时语音驱动Live2D模型，支持自定义模型更换，局域网内直接访问对话",
     price: "¥1000",
@@ -45,6 +49,7 @@ const products = [
     videoLink: null,
   },
   {
+    slug: "danmu-assistant",
     name: "直播弹幕助手",
     description: "自动化弹幕发送，支持定时任务和关键词触发，广泛适用于各种聊天窗口",
     price: "¥5",
@@ -55,6 +60,7 @@ const products = [
     videoLink: null,
   },
   {
+    slug: "printer",
     name: "直播辅助打印机",
     description: "入场欢迎、礼物答谢、关键词话术触发，支持变量替换，Windows整合包一键运行",
     price: "¥200/年",
@@ -65,6 +71,7 @@ const products = [
     videoLink: null,
   },
   {
+    slug: "bot",
     name: "洛曦Bot",
     description: "基于Nonebot2 OneBot V11开发的QQ机器人，内置多种插件满足基本需求",
     price: "免费开源",
@@ -75,6 +82,7 @@ const products = [
     videoLink: "https://space.bilibili.com/3709626/channel/collectiondetail?sid=850321",
   },
   {
+    slug: "captions",
     name: "洛曦Web字幕打印机",
     description: "通过打字方式在Web实现动态字幕显示效果，支持HTTP API协同工作",
     price: "免费开源",
@@ -85,6 +93,7 @@ const products = [
     videoLink: "https://www.bilibili.com/video/BV13h4y1e7z8/",
   },
   {
+    slug: "travel",
     name: "洛曦云旅",
     description: "智能旅游攻略生成器，基于AI的智能旅游攻略生成系统，提供个性化旅行方案",
     price: "免费开源",
@@ -152,14 +161,21 @@ export function ProductsSection() {
 
               {/* Actions */}
               <div className="flex gap-2">
-                <Link href={product.link} target="_blank" className="flex-1">
+                <Link href={`/products#${product.slug}`} className="flex-1">
                   <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 gap-1">
                     了解更多 <ArrowUpRight className="w-4 h-4" />
                   </Button>
                 </Link>
+                {product.link && (
+                  <Link href={product.link} target="_blank">
+                    <Button variant="outline" className="border-border hover:bg-secondary bg-transparent">
+                      官网/下载
+                    </Button>
+                  </Link>
+                )}
                 {product.videoLink && (
                   <Link href={product.videoLink} target="_blank">
-                    <Button variant="outline" className="border-border hover:bg-secondary bg-transparent">
+                    <Button variant="ghost" className="border-border hover:bg-secondary bg-transparent">
                       教程
                     </Button>
                   </Link>
