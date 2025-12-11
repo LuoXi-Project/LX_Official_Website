@@ -20,7 +20,7 @@ export function Footer() {
               />
               <span className="text-xl font-bold text-foreground">洛曦</span>
             </Link>
-            <p className="text-muted-foreground text-sm">AI驱动的下一代直播解决方案</p>
+            <p className="text-muted-foreground text-sm">专注于AI技术创新</p>
           </div>
 
           {/* Products */}

@@ -28,14 +28,11 @@ export function Navbar() {
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
-            <Link href="#products" className="text-muted-foreground hover:text-foreground transition-colors">
+            <Link href="/products" className="text-muted-foreground hover:text-foreground transition-colors">
               产品
             </Link>
-            <Link href="#features" className="text-muted-foreground hover:text-foreground transition-colors">
+            <Link href="/#features" className="text-muted-foreground hover:text-foreground transition-colors">
               特性
-            </Link>
-            <Link href="#pricing" className="text-muted-foreground hover:text-foreground transition-colors">
-              价格
             </Link>
             <Link href="/about" className="text-muted-foreground hover:text-foreground transition-colors">
               关于
@@ -54,7 +51,6 @@ export function Navbar() {
                 <MessageCircle className="w-5 h-5" />
               </Button>
             </Link>
-            <Button className="bg-primary text-primary-foreground hover:bg-primary/90">立即开始</Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -68,19 +64,15 @@ export function Navbar() {
       {isOpen && (
         <div className="md:hidden bg-background border-b border-border">
           <div className="px-4 py-4 space-y-4">
-            <Link href="#products" className="block text-muted-foreground hover:text-foreground">
+            <Link href="/products" className="block text-muted-foreground hover:text-foreground">
               产品
             </Link>
-            <Link href="#features" className="block text-muted-foreground hover:text-foreground">
+            <Link href="/#features" className="block text-muted-foreground hover:text-foreground">
               特性
-            </Link>
-            <Link href="#pricing" className="block text-muted-foreground hover:text-foreground">
-              价格
             </Link>
             <Link href="/about" className="block text-muted-foreground hover:text-foreground">
               关于
             </Link>
-            <Button className="w-full bg-primary text-primary-foreground">立即开始</Button>
           </div>
         </div>
       )}

@@ -1,7 +1,7 @@
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { Badge } from "@/components/ui/badge"
-import { Github, Video, MessageCircle, Heart } from "lucide-react"
+import { Github, Video, MessageCircle, Heart, Users, Target, Rocket } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 
@@ -12,11 +12,10 @@ export default function AboutPage() {
 
       <section className="pt-32 pb-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Header */}
           <div className="text-center mb-16">
             <Badge className="bg-primary/20 text-primary mb-4">关于我们</Badge>
-            <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">洛曦AI</h1>
-            <p className="text-xl text-muted-foreground">专注于AI直播技术的开源开发者</p>
+            <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">洛曦</h1>
+            <p className="text-xl text-muted-foreground">专注于AI技术创新的团队</p>
           </div>
 
           {/* Content */}
@@ -27,9 +26,39 @@ export default function AboutPage() {
                 我们的故事
               </h2>
               <p className="text-muted-foreground leading-relaxed">
-                洛曦AI团队致力于将最前沿的AI技术应用于直播领域， 我们相信AI技术能够帮助每一位创作者更好地表达自己。 从AI
-                Vtuber到数字人，从直播工具到智能助手， 我们的产品矩阵覆盖了直播的各个环节。
+                洛曦是一支专注于AI技术创新与落地的团队。我们将最前沿的人工智能技术转化为实用的产品与解决方案，帮助创作者和企业获得智能、高效、个性化的体验。从AI
+                Vtuber到数字人，从直播工具到智能助手，产品矩阵覆盖直播的各个环节。
               </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6 mb-8">
+              <div className="bg-card rounded-2xl border border-border p-6">
+                <div className="flex items-center gap-3 mb-3">
+                  <Users className="w-5 h-5 text-primary" />
+                  <h3 className="text-lg font-semibold text-foreground">组织简介</h3>
+                </div>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  洛曦致力于将AI技术应用于直播、内容创作与互动场景，持续输出易用、可靠的产品形态。
+                </p>
+              </div>
+              <div className="bg-card rounded-2xl border border-border p-6">
+                <div className="flex items-center gap-3 mb-3">
+                  <Target className="w-5 h-5 text-primary" />
+                  <h3 className="text-lg font-semibold text-foreground">创始人介绍</h3>
+                </div>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  Love丶伊卡洛斯：CEO，聚焦AI产品架构与研发；不蠢不蠢：数字人算法负责人，专注算法研发与优化。
+                </p>
+              </div>
+              <div className="bg-card rounded-2xl border border-border p-6">
+                <div className="flex items-center gap-3 mb-3">
+                  <Rocket className="w-5 h-5 text-primary" />
+                  <h3 className="text-lg font-semibold text-foreground">我们的愿景</h3>
+                </div>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  让AI成为直播与内容生态的核心驱动力，持续以开源与产品化推动场景落地，成为行业的先行者与引领者。
+                </p>
+              </div>
             </div>
 
             <div className="bg-card rounded-2xl border border-border p-8 mb-8">
