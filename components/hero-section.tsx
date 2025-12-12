@@ -1,13 +1,78 @@
+"use client"
+
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Play, Sparkles } from "lucide-react"
+import { useEffect, useRef, useState } from "react"
 
 export function HeroSection() {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [isHovered, setIsHovered] = useState(false)
+  const sectionRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (sectionRef.current) {
+        const rect = sectionRef.current.getBoundingClientRect()
+        const x = ((e.clientX - rect.left) / rect.width) * 100
+        const y = ((e.clientY - rect.top) / rect.height) * 100
+        setMousePosition({ x, y })
+      }
+    }
+
+    const handleMouseEnter = () => setIsHovered(true)
+    const handleMouseLeave = () => setIsHovered(false)
+
+    const section = sectionRef.current
+    if (section) {
+      section.addEventListener('mousemove', handleMouseMove)
+      section.addEventListener('mouseenter', handleMouseEnter)
+      section.addEventListener('mouseleave', handleMouseLeave)
+    }
+
+    return () => {
+      if (section) {
+        section.removeEventListener('mousemove', handleMouseMove)
+        section.removeEventListener('mouseenter', handleMouseEnter)
+        section.removeEventListener('mouseleave', handleMouseLeave)
+      }
+    }
+  }, [])
+
   return (
-    <section className="relative pt-32 pb-20 overflow-hidden">
+    <section ref={sectionRef} className="relative pt-32 pb-20 overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/20 via-background to-background" />
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-3xl" />
+      
+      {/* Mouse Follow Light Effect */}
+      <div 
+        className="absolute inset-0 transition-opacity duration-500 ease-out"
+        style={{
+          opacity: isHovered ? 1 : 0,
+          background: `radial-gradient(circle 600px at ${mousePosition.x}% ${mousePosition.y}%, 
+            rgba(59, 130, 246, 0.15) 0%, 
+            rgba(59, 130, 246, 0.08) 20%, 
+            rgba(59, 130, 246, 0.03) 40%, 
+            transparent 70%)`,
+          pointerEvents: 'none',
+        }}
+      />
+      
+      {/* Secondary Light Effect */}
+      <div 
+        className="absolute inset-0 transition-opacity duration-700 ease-out"
+        style={{
+          opacity: isHovered ? 0.8 : 0,
+          background: `radial-gradient(circle 400px at ${mousePosition.x}% ${mousePosition.y}%, 
+            rgba(147, 51, 234, 0.12) 0%, 
+            rgba(147, 51, 234, 0.06) 30%, 
+            transparent 60%)`,
+          pointerEvents: 'none',
+        }}
+      />
+
+      {/* Static Background Elements */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-3xl animate-pulse" />
 
       {/* Grid Pattern */}
       <div
@@ -16,6 +81,18 @@ export function HeroSection() {
           backgroundImage: `linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
                            linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)`,
           backgroundSize: "60px 60px",
+        }}
+      />
+
+      {/* Interactive Gradient Overlay */}
+      <div 
+        className="absolute inset-0 transition-all duration-300 ease-out"
+        style={{
+          background: `radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, 
+            transparent 0%, 
+            rgba(0, 0, 0, 0.3) 50%)`,
+          opacity: isHovered ? 0.4 : 0,
+          pointerEvents: 'none',
         }}
       />
 
