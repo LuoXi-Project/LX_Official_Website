@@ -29,24 +29,24 @@ export function Footer() {
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
                 <Link
-                  href="https://github.com/Ikaros-521/AI-Vtuber"
+                  href="/products#ai-vtuber"
                   className="hover:text-foreground transition-colors"
                 >
                   AI Vtuber
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-foreground transition-colors">
+                <Link href="/products#luoxi-ai" className="hover:text-foreground transition-colors">
                   洛曦AI
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-foreground transition-colors">
+                <Link href="/products#digital-human" className="hover:text-foreground transition-colors">
                   实时语音数字人
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-foreground transition-colors">
+                <Link href="/products#danmu-assistant" className="hover:text-foreground transition-colors">
                   直播弹幕助手
                 </Link>
               </li>
