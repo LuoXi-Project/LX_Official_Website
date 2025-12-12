@@ -1,10 +1,13 @@
+"use client"
+
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { ArrowUpRight, PlayCircle, Book } from "lucide-react"
+import { ArrowUpRight, PlayCircle, Book, Sparkles } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { useEffect, useRef, useState } from "react"
 
 const products = [
   {
@@ -136,120 +139,211 @@ const products = [
 ]
 
 export default function ProductsPage() {
+  const [globalMousePosition, setGlobalMousePosition] = useState({ x: 0, y: 0 })
+  const [activeProductIndex, setActiveProductIndex] = useState(0)
+  const mainRef = useRef<HTMLDivElement>(null)
+  const productRefs = useRef<(HTMLDivElement | null)[]>([])
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (mainRef.current) {
+        const rect = mainRef.current.getBoundingClientRect()
+        const x = ((e.clientX - rect.left) / rect.width) * 100
+        const y = ((e.clientY - rect.top) / rect.height) * 100
+        setGlobalMousePosition({ x, y })
+      }
+    }
+
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY
+      const windowHeight = window.innerHeight
+      const currentIndex = Math.round(scrollPosition / windowHeight)
+      setActiveProductIndex(Math.max(0, Math.min(currentIndex, products.length - 1)))
+    }
+
+    const main = mainRef.current
+    if (main) {
+      main.addEventListener('mousemove', handleMouseMove)
+    }
+    window.addEventListener('scroll', handleScroll)
+    handleScroll() // 初始化
+
+    return () => {
+      if (main) {
+        main.removeEventListener('mousemove', handleMouseMove)
+      }
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+
   return (
-    <main className="min-h-screen bg-background">
-      <Navbar />
-      <section className="pt-16">
-        <div className="px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-8">
-            <Badge className="bg-primary/20 text-primary mb-4">产品矩阵</Badge>
-            <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">全面产品展示</h1>
-            <p className="text-lg text-muted-foreground">
-              纵向滚动切换，每屏聚焦一个产品，支持链接与视频教程，便于快速了解与决策。
-            </p>
+    <main ref={mainRef} className="min-h-screen bg-background relative overflow-hidden">
+      {/* 全局背景效果 */}
+      <div className="fixed inset-0 pointer-events-none">
+        {/* 主要跟随光效 */}
+        <div 
+          className="absolute inset-0 transition-all duration-1000 ease-out"
+          style={{
+            background: `radial-gradient(circle 800px at ${globalMousePosition.x}% ${globalMousePosition.y}%, 
+              rgba(59, 130, 246, 0.08) 0%, 
+              rgba(147, 51, 234, 0.05) 25%, 
+              rgba(236, 72, 153, 0.03) 50%, 
+              transparent 70%)`,
+          }}
+        />
+        
+        {/* 网格背景 */}
+        <div
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage: `linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+                             linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)`,
+            backgroundSize: "80px 80px",
+          }}
+        />
+      </div>
+
+      <div className="relative z-10">
+        <Navbar />
+        <section className="pt-16">
+          <div className="px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-3xl mx-auto mb-8">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-4">
+                <Sparkles className="w-4 h-4 text-primary" />
+                <Badge className="bg-transparent text-primary border-none">产品矩阵</Badge>
+              </div>
+              <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-4 bg-gradient-to-r from-primary via-purple-500 to-pink-500 bg-clip-text text-transparent">
+                全面产品展示
+              </h1>
+              <p className="text-lg text-muted-foreground">
+                纵向滚动切换，每屏聚焦一个产品，支持链接与视频教程，便于快速了解与决策。
+              </p>
+            </div>
           </div>
-        </div>
 
-        {/* 使用整页滚动，每个产品占一屏，避免嵌套滚动 */}
-        <div className="snap-y snap-mandatory">
-          {products.map((product) => (
-            <div
-              key={product.id}
-              id={product.id}
-              className={`relative min-h-screen snap-start flex items-center justify-center px-4 sm:px-6 lg:px-12`}
-            >
+          {/* 使用整页滚动，每个产品占一屏，避免嵌套滚动 */}
+          <div className="snap-y snap-mandatory relative">
+            {products.map((product, index) => (
               <div
-                className={`absolute inset-0 bg-gradient-to-br ${product.gradient} blur-[60px] opacity-60`}
-                aria-hidden
-              />
-              <div className="absolute inset-0 bg-card/70 backdrop-blur-2xl border-t border-border" aria-hidden />
+                key={product.id}
+                ref={(el) => { productRefs.current[index] = el }}
+                id={product.id}
+                className={`relative min-h-screen snap-start flex items-center justify-center px-4 sm:px-6 lg:px-12 transition-all duration-700 ${activeProductIndex === index ? 'opacity-100 scale-100' : 'opacity-90 scale-98'}`}
+              >
+                {/* 产品特定的动态背景 */}
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${product.gradient} blur-[80px] opacity-40 animate-pulse transition-all duration-1000`}
+                  style={{
+                    animationDuration: `${4 + index * 0.5}s`,
+                    filter: activeProductIndex === index ? 'blur(60px)' : 'blur(100px)',
+                  }}
+                  aria-hidden
+                />
+                
+                {/* 鼠标跟随光效（产品特定） */}
+                <div 
+                  className="absolute inset-0 transition-all duration-500 ease-out opacity-60"
+                  style={{
+                    background: `radial-gradient(circle 600px at ${globalMousePosition.x}% ${globalMousePosition.y}%, 
+                      ${product.gradient.includes('amber') ? 'rgba(251, 191, 36, 0.15)' : 
+                       product.gradient.includes('purple') ? 'rgba(147, 51, 234, 0.15)' :
+                       product.gradient.includes('cyan') ? 'rgba(6, 182, 212, 0.15)' :
+                       product.gradient.includes('pink') ? 'rgba(236, 72, 153, 0.15)' :
+                       'rgba(59, 130, 246, 0.15)'} 0%, 
+                      transparent 50%)`,
+                    opacity: activeProductIndex === index ? 0.8 : 0.3,
+                  }}
+                />
+                
+                <div className="absolute inset-0 bg-card/60 backdrop-blur-2xl border-t border-border" aria-hidden />
 
-              <div className="relative max-w-5xl w-full grid lg:grid-cols-2 gap-8 items-center">
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <Badge
-                      variant="secondary"
-                      className={
-                        product.badge === "热门"
-                          ? "bg-primary/20 text-primary"
-                          : product.badge === "企业版"
-                            ? "bg-amber-200/40 text-amber-500"
-                            : product.badge === "新品"
-                              ? "bg-emerald-200/40 text-emerald-500"
-                              : "bg-secondary text-muted-foreground"
-                      }
-                    >
-                      {product.badge}
-                    </Badge>
-                    <span className="text-sm text-muted-foreground">{product.price}</span>
-                  </div>
-                  <h2 className="text-3xl sm:text-4xl font-bold text-foreground">{product.name}</h2>
-                  <p className="text-lg text-muted-foreground">{product.tagline}</p>
-
-                  <div className="space-y-2">
-                    {product.points.map((point) => (
-                      <div
-                        key={point}
-                        className="flex items-center gap-3 p-3 rounded-xl bg-background/60 border border-border/60"
+                <div className="relative max-w-5xl w-full grid lg:grid-cols-2 gap-8 items-center">
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-3">
+                      <Badge
+                        variant="secondary"
+                        className={
+                          product.badge === "热门"
+                            ? "bg-primary/20 text-primary"
+                            : product.badge === "企业版"
+                              ? "bg-amber-200/40 text-amber-500"
+                              : product.badge === "新品"
+                                ? "bg-emerald-200/40 text-emerald-500"
+                                : "bg-secondary text-muted-foreground"
+                        }
                       >
-                        <span className="w-2 h-2 rounded-full bg-primary" />
-                        <span className="text-foreground">{point}</span>
+                        {product.badge}
+                      </Badge>
+                      <span className="text-sm text-muted-foreground">{product.price}</span>
+                    </div>
+                    <h2 className="text-3xl sm:text-4xl font-bold text-foreground">{product.name}</h2>
+                    <p className="text-lg text-muted-foreground">{product.tagline}</p>
+
+                    <div className="space-y-2">
+                      {product.points.map((point) => (
+                        <div
+                          key={point}
+                          className="flex items-center gap-3 p-3 rounded-xl bg-background/60 border border-border/60"
+                        >
+                          <span className="w-2 h-2 rounded-full bg-primary" />
+                          <span className="text-foreground">{point}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="flex gap-3 pt-2 flex-wrap">
+                      <Link href={product.link} target="_blank">
+                        <Button className="gap-2">
+                          了解更多 <ArrowUpRight className="w-4 h-4" />
+                        </Button>
+                      </Link>
+                      {product.video && (
+                        <Link href={product.video} target="_blank">
+                          <Button variant="outline" className="gap-2 border-border bg-transparent">
+                            教程 / 演示 <PlayCircle className="w-4 h-4" />
+                          </Button>
+                        </Link>
+                      )}
+                      {product.deployLink && (
+                        <Link href={product.deployLink} target="_blank">
+                          <Button variant="outline" className="gap-2 border-border bg-transparent">
+                            部署 <ArrowUpRight className="w-4 h-4" />
+                          </Button>
+                        </Link>
+                      )}
+                      {product.docLink && (
+                        <Link href={product.docLink} target="_blank">
+                          <Button variant="outline" className="gap-2 border-border bg-transparent">
+                            文档 <Book className="w-4 h-4" />
+                          </Button>
+                        </Link>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="hidden lg:flex items-center justify-center">
+                    <div className="relative w-full max-w-2xl aspect-[16/10] rounded-[28px] overflow-hidden border border-border bg-background/70 shadow-2xl">
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-black/20 pointer-events-none" />
+                      <div className="absolute inset-0">
+                        <div className="absolute inset-0 bg-background/30 blur-3xl" aria-hidden />
+                        <Image
+                          src={product.image}
+                          alt={product.name}
+                          fill
+                          sizes="(min-width: 1024px) 640px, 100vw"
+                          className="object-contain"
+                          priority
+                        />
                       </div>
-                    ))}
-                  </div>
-
-                  <div className="flex gap-3 pt-2 flex-wrap">
-                    <Link href={product.link} target="_blank">
-                      <Button className="gap-2">
-                        了解更多 <ArrowUpRight className="w-4 h-4" />
-                      </Button>
-                    </Link>
-                    {product.video && (
-                      <Link href={product.video} target="_blank">
-                        <Button variant="outline" className="gap-2 border-border bg-transparent">
-                          教程 / 演示 <PlayCircle className="w-4 h-4" />
-                        </Button>
-                      </Link>
-                    )}
-                    {product.deployLink && (
-                      <Link href={product.deployLink} target="_blank">
-                        <Button variant="outline" className="gap-2 border-border bg-transparent">
-                          部署 <ArrowUpRight className="w-4 h-4" />
-                        </Button>
-                      </Link>
-                    )}
-                    {product.docLink && (
-                      <Link href={product.docLink} target="_blank">
-                        <Button variant="outline" className="gap-2 border-border bg-transparent">
-                          文档 <Book className="w-4 h-4" />
-                        </Button>
-                      </Link>
-                    )}
-                  </div>
-                </div>
-
-                <div className="hidden lg:flex items-center justify-center">
-                  <div className="relative w-full max-w-2xl aspect-[16/10] rounded-[28px] overflow-hidden border border-border bg-background/70 shadow-2xl">
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-black/20 pointer-events-none" />
-                    <div className="absolute inset-0">
-                      <div className="absolute inset-0 bg-background/30 blur-3xl" aria-hidden />
-                      <Image
-                        src={product.image}
-                        alt={product.name}
-                        fill
-                        sizes="(min-width: 1024px) 640px, 100vw"
-                        className="object-contain"
-                        priority
-                      />
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
-      </section>
-      <Footer />
+            ))}
+          </div>
+        </section>
+        <Footer />
+      </div>
     </main>
   )
 }
