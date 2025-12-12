@@ -2,7 +2,7 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { ArrowUpRight, PlayCircle } from "lucide-react"
+import { ArrowUpRight, PlayCircle, Book } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -16,6 +16,7 @@ const products = [
     points: ["多用户多配置：同时多场景直播", "AI集成：对接主流LLM与TTS", "跨平台：Windows / Linux / macOS"],
     link: "https://pd.qq.com/s/f247aeq3j",
     video: "https://space.bilibili.com/3709626/lists/4391504",
+    docLink: "https://ikaros.dpdns.org/site/",
     deployLink: null,
     gradient: "from-amber-500/60 via-orange-500/60 to-red-500/60",
     image: "/img/洛曦AI.png",
@@ -30,6 +31,7 @@ const products = [
     link: "https://github.com/Ikaros-521/AI-Vtuber",
     video: "https://space.bilibili.com/3709626/lists/1422512",
     deployLink: null,
+    docLink: "https://ikaros521.eu.org/site/",
     gradient: "from-purple-600/60 via-indigo-600/60 to-blue-600/60",
     image: "/img/AI-Vtuber.png",
   },
@@ -43,6 +45,7 @@ const products = [
     link: "https://space.bilibili.com/3709626",
     video: "https://www.bilibili.com/video/BV1iyndzpEVz",
     deployLink: "https://www.compshare.cn/images/Rihotreq9MRL?referral_code=CpxneZgXby6EOmUwLGr7hQ",
+    docLink: "https://docs.qq.com/doc/DWVhGbm9tZGZVc1pU?tdsourcetag=nt-grpaio-file",
     gradient: "from-cyan-500/60 via-teal-500/60 to-emerald-500/60",
     image: "/img/实时语音数字人.png",
   },
@@ -56,6 +59,7 @@ const products = [
     link: "https://github.com/Ikaros-521/LX_SkyRoam_Agent",
     video: "https://www.bilibili.com/video/BV1XtCdBXEbf",
     deployLink: null,
+    docLink: "https://s.apifox.cn/ebd41a63-a57f-4a85-b45c-3c49b8d8fe77",
     gradient: "from-indigo-500/60 via-cyan-500/60 to-teal-500/60",
     image: "/img/洛曦云旅.png",
   },
@@ -69,6 +73,7 @@ const products = [
     link: "https://mall.bilibili.com/neul-next/detailuniversal/detail.html?isMerchant=1&page=detailuniversal_detail&saleType=10&itemsId=11995985&loadingShow=1&noTitleBar=1&msource=merchant_share",
     video: "https://www.bilibili.com/video/BV11Ry5YBEUo/",
     deployLink: null,
+    docLink: "https://s.apifox.cn/ebd41a63-a57f-4a85-b45c-3c49b8d8fe77",
     gradient: "from-sky-500/60 via-blue-500/60 to-indigo-500/60",
     image: "/img/直播弹幕助手.png",
   },
@@ -82,6 +87,7 @@ const products = [
     link: "https://space.bilibili.com/3709626",
     video: null,
     deployLink: null,
+    docLink: null,
     gradient: "from-lime-500/60 via-green-500/60 to-emerald-500/60",
     image: "/img/直播辅助打印机.png",
   },
@@ -95,6 +101,7 @@ const products = [
     link: "https://github.com/Ikaros-521/LX_Bot",
     video: "https://space.bilibili.com/3709626/channel/collectiondetail?sid=850321",
     deployLink: null,
+    docLink: "https://docs.qq.com/sheet/DWURzcWhWR2tSTE10",
     gradient: "from-slate-500/60 via-gray-600/60 to-zinc-700/60",
     image: "/img/洛曦Bot.png",
   },
@@ -108,6 +115,7 @@ const products = [
     link: "https://github.com/Ikaros-521/captions_printer",
     video: "https://www.bilibili.com/video/BV13h4y1e7z8/",
     deployLink: null,
+    docLink: null,
     gradient: "from-orange-500/60 via-amber-500/60 to-yellow-400/60",
     image: "/img/洛曦Web字幕打印机.png",
   },
@@ -121,6 +129,7 @@ const products = [
     link: "https://space.bilibili.com/3709626",
     video: null,
     deployLink: null,
+    docLink: null,
     gradient: "from-pink-500/60 via-fuchsia-500/60 to-purple-500/60",
     image: "/img/实时语音Live2D.png",
   },
@@ -206,6 +215,13 @@ export default function ProductsPage() {
                       <Link href={product.deployLink} target="_blank">
                         <Button variant="outline" className="gap-2 border-border bg-transparent">
                           部署 <ArrowUpRight className="w-4 h-4" />
+                        </Button>
+                      </Link>
+                    )}
+                    {product.docLink && (
+                      <Link href={product.docLink} target="_blank">
+                        <Button variant="outline" className="gap-2 border-border bg-transparent">
+                          文档 <Book className="w-4 h-4" />
                         </Button>
                       </Link>
                     )}
