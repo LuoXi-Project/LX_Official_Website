@@ -134,8 +134,7 @@ export function HeroSection() {
           <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { value: "20+", label: "支持的LLM" },
-              { value: "10+", label: "产品矩阵" },
-              { value: "50K+", label: "GitHub Stars" },
+              { value: "5+", label: "产品矩阵" },
               { value: "24/7", label: "全天候支持" },
             ].map((stat, index) => (
               <div key={index} className="text-center">
