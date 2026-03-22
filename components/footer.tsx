@@ -110,7 +110,7 @@ export function Footer() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted-foreground">© 2025 洛曦. All rights reserved.</p>
+          <p className="text-sm text-muted-foreground">© 2025-2026 洛曦. All rights reserved.</p>
           <p className="text-sm text-muted-foreground">QQ: 327209194</p>
         </div>
       </div>

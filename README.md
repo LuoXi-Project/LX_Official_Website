@@ -18,6 +18,12 @@
 
 </div>
 
+## 项目构建
+```shell
+npm install
+npm run dev
+npm run build
+```
 
 ## 💡 提问的智慧
 
