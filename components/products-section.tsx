@@ -41,6 +41,18 @@ const products = [
     deployLink: "https://www.compshare.cn/images/Rihotreq9MRL?referral_code=CpxneZgXby6EOmUwLGr7hQ",
   },
   {
+    slug: "LiveBotX",
+    name: "直播间智能互动助手",
+    description: "智能弹幕互动、LLM智能决策、拟人化发送、熔断保护、浏览器自动化",
+    price: "¥30/月 ¥100/年 源码¥500",
+    badge: "热门",
+    stars: 5,
+    features: ["智能弹幕互动", "LLM智能决策", "拟人化发送", "熔断保护", "浏览器自动化"],
+    link: "https://space.bilibili.com/3709626",
+    videoLink: "https://www.bilibili.com/video/BV1q4NTz1EQ5",
+    deployLink: null,
+  },
+  {
     slug: "danmu-assistant",
     name: "直播弹幕助手",
     description: "自动化弹幕发送，支持定时任务和关键词触发，广泛适用于各种聊天窗口",
