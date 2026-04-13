@@ -101,19 +101,19 @@ export function HeroSection() {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8">
             <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm text-primary">AI 驱动的下一代直播解决方案</span>
+            <span className="text-sm text-primary">AI 驱动的下一代直播、视频创作解决方案</span>
           </div>
 
           {/* Main Title */}
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-foreground mb-6 text-balance">
             用 <span className="text-primary">AI</span> 重新定义
             <br />
-            虚拟直播体验
+            虚拟直播、视频创作体验
           </h1>
 
           {/* Subtitle */}
           <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 text-pretty">
-            洛曦AI提供完整的AI虚拟主播、数字人、直播辅助工具解决方案， 让您的直播更智能、更高效、更精彩
+            洛曦AI提供完整的AI虚拟主播、数字人、直播辅助、智能剪辑工具解决方案， 让您的直播、视频创作更智能、更高效、更精彩
           </p>
 
           {/* CTA Buttons */}

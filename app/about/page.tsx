@@ -73,7 +73,7 @@ export default function AboutPage() {
                   "Tailwind CSS",
                   "OpenAI",
                   "Claude",
-                  "讯飞星火",
+                  "DeepSeek",
                   "通义千问",
                 ].map((tech) => (
                   <Badge key={tech} variant="secondary" className="bg-secondary text-muted-foreground">

@@ -53,6 +53,18 @@ const products = [
     deployLink: null,
   },
   {
+    slug: "smart-clip",
+    name: "洛曦智剪",
+    description: "智能剪辑，基于AI的智能剪辑系统，提供个性化剪辑方案",
+    price: "内测免费中",
+    badge: "新品",
+    stars: 5,
+    features: ["AI剪辑", "字幕提取", "视频总结", "高光识别"],
+    link: "https://www.bilibili.com/video/BV1ezDXBPE4z",
+    videoLink: "https://www.bilibili.com/video/BV1ezDXBPE4z",
+    deployLink: null,
+  },
+  {
     slug: "travel",
     name: "洛曦云旅",
     description: "智能旅游攻略生成器，基于AI的智能旅游攻略生成系统，提供个性化旅行方案",

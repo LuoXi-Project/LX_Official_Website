@@ -4,7 +4,7 @@ const features = [
   {
     icon: Bot,
     title: "多模型支持",
-    description: "支持ChatGPT、Claude、讯飞星火、通义千问等20+主流大语言模型",
+    description: "支持ChatGPT、Claude、DeepSeek、通义千问等20+主流大语言模型",
   },
   {
     icon: Cpu,
@@ -40,7 +40,7 @@ export function FeaturesSection() {
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">为什么选择洛曦AI</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            我们提供业界领先的AI直播解决方案，助力您的直播事业腾飞
+            我们提供业界领先的AI直播、视频创作解决方案，助力您的直播、视频创作事业腾飞
           </p>
         </div>
 
