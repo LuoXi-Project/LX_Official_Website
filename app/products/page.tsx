@@ -4,7 +4,7 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { ArrowUpRight, PlayCircle, Book, Sparkles } from "lucide-react"
+import { ArrowUpRight, PlayCircle, Book, Sparkles, ScrollText } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
@@ -345,6 +345,11 @@ export default function ProductsPage() {
                           </Button>
                         </Link>
                       )}
+                      <Link href={`/changelog?product=${product.id}`}>
+                        <Button variant="outline" className="gap-2 border-border bg-transparent">
+                          更新日志 <ScrollText className="w-4 h-4" />
+                        </Button>
+                      </Link>
                     </div>
                   </div>
 

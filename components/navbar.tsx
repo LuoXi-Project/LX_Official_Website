@@ -37,6 +37,9 @@ export function Navbar() {
             <Link href="/about" className="text-muted-foreground hover:text-foreground transition-colors">
               关于
             </Link>
+            <Link href="/changelog" className="text-muted-foreground hover:text-foreground transition-colors">
+              更新日志
+            </Link>
           </div>
 
           {/* Right Side */}
@@ -72,6 +75,9 @@ export function Navbar() {
             </Link>
             <Link href="/about" className="block text-muted-foreground hover:text-foreground">
               关于
+            </Link>
+            <Link href="/changelog" className="block text-muted-foreground hover:text-foreground">
+              更新日志
             </Link>
           </div>
         </div>

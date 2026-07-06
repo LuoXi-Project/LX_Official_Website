@@ -77,6 +77,11 @@ export function Footer() {
                   关于我们
                 </Link>
               </li>
+              <li>
+                <Link href="/changelog" className="hover:text-foreground transition-colors">
+                  更新日志
+                </Link>
+              </li>
             </ul>
           </div>
 
